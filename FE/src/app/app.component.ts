@@ -21,11 +21,16 @@ export class AppComponent implements AfterViewInit {
       if(this.currentValue === ""){
         this.sentiment = '';
       } else {
-        this.dataService.getEmotion(this.currentValue).subscribe((result) => {
+        this.dataService.getSentiment(this.currentValue).subscribe((result) => {
           this.sentiment = result;
          })
       }
     }
     );
+  }
+
+  clear(): void {
+    this.sentiment = '';
+    this.currentValue = '';
   }
 }

@@ -1,7 +1,7 @@
 FROM node:20.11.0-alpine as build
 WORKDIR /FE
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 RUN npm install -g @angular/cli
 COPY . .
 RUN npm run build --configuration=production

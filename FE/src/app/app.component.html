@@ -4,7 +4,7 @@
         <span class="point">.</span>
         <br>
         <div class="name">
-            Rachele Elia
+            Candidate: Rachele Elia
         </div>
     </div>
 
@@ -12,12 +12,13 @@
         <mat-form-field>
             <mat-label>Sentiment Analysis</mat-label>
             <input #input matInput placeholder="Write here" [(ngModel)]="currentValue">
-            <button *ngIf="currentValue" matSuffix mat-icon-button aria-label="Clear" (click)="currentValue=''">
+            <button *ngIf="currentValue" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
                 <mat-icon>close</mat-icon>
                 </button>
+            <mat-hint *ngIf="sentiment !== '' ">
+                {{ sentiment }}
+            </mat-hint>
         </mat-form-field>
-        <div class="sentiment" *ngIf="sentiment !== '' ">
-            {{ sentiment }}
-        </div>
+
     </div>
 </div>

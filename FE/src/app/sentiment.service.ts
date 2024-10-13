@@ -8,7 +8,7 @@ export class SentimentService {
   constructor(protected httpClient: HttpClient) {}
 
   
-  getEmotion(text: string): Observable<string>{
+  getSentiment(text: string): Observable<string>{
     return this.httpClient.post<string>(this.baseUrl, {
       input_text: text
     }).pipe(
