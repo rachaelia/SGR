@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="title">
+        SGR Compliance Project
+    </div>
+    <div class="input">
+        <mat-form-field>
+            <input #input matInput placeholder="Write here"  [(ngModel)]="currentValue">
+        </mat-form-field>
+        <div class="sentiment" *ngIf="sentiment !== '' ">
+            {{ sentiment }}
+        </div>
+    </div>
+</div>
