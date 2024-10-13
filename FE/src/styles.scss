@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 html,
 body {
   height: 100%;
@@ -6,7 +8,13 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Albert Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: 0.01rem;
+  color: #040405;
 
   app-home {
     display: flex;
@@ -15,4 +23,16 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  .h1 {
+    font-family: "Frank Ruhl Libre" !important;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #040405;
+    font-size: 2.5rem;
+}
+
 }

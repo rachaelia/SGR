@@ -1,10 +1,20 @@
 <div class="container">
     <div class="title">
-        SGR Compliance Project
+        <span class="h1">SGR Compliance Interview Project</span>
+        <span class="point">.</span>
+        <br>
+        <div class="name">
+            Rachele Elia
+        </div>
     </div>
+
     <div class="input">
         <mat-form-field>
-            <input #input matInput placeholder="Write here"  [(ngModel)]="currentValue">
+            <mat-label>Sentiment Analysis</mat-label>
+            <input #input matInput placeholder="Write here" [(ngModel)]="currentValue">
+            <button *ngIf="currentValue" matSuffix mat-icon-button aria-label="Clear" (click)="currentValue=''">
+                <mat-icon>close</mat-icon>
+                </button>
         </mat-form-field>
         <div class="sentiment" *ngIf="sentiment !== '' ">
             {{ sentiment }}
