@@ -9,7 +9,7 @@ services:
                 - 80:80
     db:
         image: postgres
-        build: /Postgres
+        build: ./Postgres
         container_name: DB
         restart: always
         ports:
