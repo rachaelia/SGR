@@ -15,8 +15,13 @@ export class AppComponent implements AfterViewInit {
   currentValue: string;
   sentiment: string;
 
+  /**
+   * Waits a second since the keyup event emission before emptying the sentiment variable 
+   * if currentValue is empty or calling the service to get the sentiment analysis from the 
+   * server
+   */
   ngAfterViewInit(): void {
-    fromEvent(this.input.nativeElement, 'keyup').pipe(debounceTime(1200)).subscribe(c => 
+    fromEvent(this.input.nativeElement, 'keyup').pipe(debounceTime(1000)).subscribe(c => 
     {
       if(this.currentValue === ""){
         this.sentiment = '';
@@ -29,6 +34,10 @@ export class AppComponent implements AfterViewInit {
     );
   }
 
+  /**
+   * Clears both the sentiment output and the input value when the
+   * material button X is clicked
+   */
   clear(): void {
     this.sentiment = '';
     this.currentValue = '';
