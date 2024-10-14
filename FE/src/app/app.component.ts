@@ -23,7 +23,7 @@ export class AppComponent implements AfterViewInit {
       } else {
         this.dataService.getSentiment(this.currentValue).subscribe((result) => {
           this.sentiment = result;
-         })
+        })
       }
     }
     );

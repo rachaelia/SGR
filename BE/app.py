@@ -2,6 +2,7 @@ import psycopg2
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from nltk.sentiment import SentimentIntensityAnalyzer
+from waitress import serve
 
 from config import load_config
 from connect import connect
@@ -60,6 +61,4 @@ def get_compound(text):
 
 
 if __name__ == '__main__':
-    #    app.run(debug=True)
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+    serve(app, host="127.0.0.1", port=5000)

@@ -6,5 +6,5 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 RUN python -m nltk.downloader punkt
 COPY . .
-EXPOSE 8080
+EXPOSE 5000
 CMD ["python","app.py"]

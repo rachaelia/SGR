@@ -4,7 +4,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class SentimentService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://127.0.0.1:5000';
   constructor(protected httpClient: HttpClient) {}
 
   
