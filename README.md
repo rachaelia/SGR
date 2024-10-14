@@ -1,7 +1,7 @@
 # SGR Compliance Interview Project
 
 # Short description
-Develop a web service so that the users can insert some text and receive a sentiment analysys in real time, using Django (or Flask) for the backend, a
+Develop a web service so that the users can insert some text and receive a sentiment analysis in real time, using Django (or Flask) for the backend, a
 database to store the data and a basic ML model for the sentiment analysis. The project should be containerized using Docker and controlled by Git.
 
 # Project structure
