@@ -1,8 +1,8 @@
 import psycopg2
+import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from nltk.sentiment import SentimentIntensityAnalyzer
-from waitress import serve
 
 from config import load_config
 from connect import connect
@@ -32,8 +32,9 @@ def analyze_emotion():
                     (text, compound)
                 )
         except psycopg2.Error as error:
-            print('Unable to execute query!\n{0}'.format(error))
+            logging.error('Unable to execute query!\n{0}'.format(error))
         finally:
+            cursor.close()
             connection.close()
 
         return jsonify(result)
@@ -59,6 +60,6 @@ def get_compound(text):
     sia = SentimentIntensityAnalyzer()
     return sia.polarity_scores(text).get('compound')
 
+def create_app():
+    return app
 
-if __name__ == '__main__':
-    serve(app, host="127.0.0.1", port=5000)

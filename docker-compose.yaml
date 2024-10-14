@@ -7,15 +7,6 @@ services:
             restart: always
             ports:
                 - 80:80
-            expose:
-                - "80"
-    app-backend:
-        image: backend
-        build: ./BE
-        container_name: backend
-        restart: always
-        ports:
-            - 8080:8080
     db:
         image: postgres
         build: /Postgres
@@ -28,9 +19,25 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_DB=POSTGRES_DB
         volumes:
-            - /var/lib/postgresql/data/
+            - ./postgres-data:/var/lib/postgresql/data
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U postgres -d POSTGRES_DB"]
             interval: 10s
             timeout: 5s
-            retries: 5        
+            retries: 5   
+    app-backend:
+        image: backend
+        build: ./BE
+        environment:
+            - PYTHONUNBUFFERED=0
+            - DATABASE_HOST=db  # Use the service name as the host
+            - DATABASE_PORT=5432
+            - DATABASE_USER=postgres
+            - DATABASE_PASSWORD=postgres_pw
+            - DATABASE_NAME=POSTGRES_DB
+        container_name: backend
+        depends_on:
+            - db
+        restart: always
+        ports:
+            - 8080:8080     
